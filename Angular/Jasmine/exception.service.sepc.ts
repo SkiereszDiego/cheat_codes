@@ -1,7 +1,23 @@
+//ARQUIVO.SERVICE.TS
+@Injectavle()
+export class UniqueIdService {
 
-// Karma roda os testes de maneira aleatoria, ele faz isso para pegar o erro de um teste vazar e pegar o contexto de outro teste.
-// Garantir com o beforeEach que tenha uma instancia unica para cada it, para que ela exista so durante o teste
+private numberOfgenerateIds = 0;
 
+//expressao regular que testa se começa com Maisc ou min ou com hifem
+private validId = /^[A-Za-z]+[\w\-\:\.]*$/;
+
+public generateUniqueIdWithPrefix(prefix: string): string {
+  if (!prefix) {
+    trow Error('Prefix can not be empty');
+  }
+  const uniqueId = this.generateuniqueId();
+  this.numberOfGenerateIds++;
+  return `${prefix}-${uniqueId}`;
+}
+  
+  
+//ARQUIVO.SPEC.TS
 import { UniqueIDService } from '.unique-id.service';
 
 describe(UniqueIDService.name, () => {
