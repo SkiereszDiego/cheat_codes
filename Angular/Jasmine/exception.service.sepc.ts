@@ -17,7 +17,7 @@ describe(UniqueIDService.name, () => {
 //     expect(() => service.generateUniqueIdWithPrefix(undefined)).toThrow();
 //     expect(() => service.generateUniqueIdWithPrefix('')).toThrow();
     
-//     ----deizando organizado
+//     ----deixando organizado
       const emptyValues = [null, undefined, ''];
       emptyValues.forEach(emptyValues => {
        expect(() => service.generateUniqueIdWithPrefix(emptyValues)).toThrow();
