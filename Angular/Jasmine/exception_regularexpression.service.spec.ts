@@ -11,7 +11,9 @@ private numberOfgenerateIds = 0;
 private validId = /^[A-Za-z]+[\w\-\:\.]*$/;
 
 public generateUniqueIdWithPrefix(prefix: string): string {
-  if (!prefix) {
+  //chamando expressao regular q se esse prefixo nao seguir minha regra ele vai chamar a exceção
+  //teste é preciso refatorar quando modifica a implementação do teste
+  if (!prefix || !this.validId.test(prefix)) {
     trow Error('Prefix can not be empty');
   }
   const uniqueId = this.generateuniqueId();
